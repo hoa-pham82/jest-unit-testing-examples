@@ -55,7 +55,7 @@ jobs:
     needs: [unit-tests]
     environment:
       name: github-pages
-      url: ${{ steps.change-page-url.outputs.new_page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Download test report
@@ -86,6 +86,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
 
-      - name: Override page_url
-        id: change-page-url
-        run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}report/" >> $GITHUB_OUTPUT
+      # - name: Override page_url
+      #   id: change-page-url
+      #   run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}report/" >> $GITHUB_OUTPUT
