@@ -46,7 +46,8 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload test report only
-          path: './test-result/unit_test_report.html'
+          name: github-pages
+          path: test-result/unit_test_report.html
 
       - name: Deploy to GitHub Pages
         id: deployment
