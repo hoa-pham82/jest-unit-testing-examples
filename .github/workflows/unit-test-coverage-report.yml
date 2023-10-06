@@ -42,7 +42,10 @@ jobs:
         with:
           # Upload test report only
           name: report
-          path: $GITHUB_WORKSPACE/test-result/
+          path: test-result/
+          
+      - name: Display structure of downloaded files
+        run: ls -R && pwd && echo $GITHUB_WORKSPACE
     
   # Single deploy job since we're just deploying
   deploy:
