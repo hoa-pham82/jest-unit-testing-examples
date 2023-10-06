@@ -63,6 +63,10 @@ jobs:
         with:
           name: github-pages
           path: test-result/
+      - name: Enable Debugging for Download Test Report
+        env:
+          ACTIONS_STEP_DEBUG: true
+        run: echo "Enabling debug mode for this step."
 
       # - name: Place artifacts
       #   shell: bash
