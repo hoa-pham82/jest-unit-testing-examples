@@ -42,7 +42,7 @@ jobs:
         with:
           # Upload test report only
           name: report
-          path: test-result/
+          path: $GITHUB_WORKSPACE/test-result/
     
   # Single deploy job since we're just deploying
   deploy:
@@ -58,7 +58,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: report
-          path: test-result/
+          path: $GITHUB_WORKSPACE/test-result/
+          
       # - name: Place artifacts
       #   shell: bash
       #   run: |
@@ -76,7 +77,7 @@ jobs:
         with:
           # Upload test report only
           name: report
-          path: $GITHUB_WORKSPACE/test-result/
+          path: $GITHUB_WORKSPACE/test-result
           
  
 
