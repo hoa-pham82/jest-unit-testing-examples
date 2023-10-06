@@ -47,7 +47,7 @@ jobs:
         with:
           # Upload test report only
           name: github-pages
-          path: test-result/unit_test_report.html
+          path: test-result/
 
       - name: Deploy to GitHub Pages
         id: deployment
