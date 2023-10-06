@@ -71,6 +71,9 @@ jobs:
           # Upload test report only
           name: report
           path: test-result/
+          
+      - name: Display structure of downloaded files
+        run: ls -R
 
       - name: Deploy to GitHub Pages
         id: deployment
