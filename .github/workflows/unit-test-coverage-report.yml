@@ -21,18 +21,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
- 
-      
-    
+   
   # Single deploy job since we're just deploying
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ always() }}
-
     environment:
       name: github-pages
-      url: ${{ steps.change-page-url.outputs.new_page_url }}
-    
+      url: ${{ steps.change-page-url.outputs.new_page_url }}    
     steps: 
       - name: Checkout
         uses: actions/checkout@v3
@@ -46,7 +41,8 @@ jobs:
 
       - name: Run unit test and Generate report
         run: npm run test
-
+        
+        if: ${{ always() }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
         
@@ -54,7 +50,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload test report only
-          name: report
+          name: github-pages
           path: test-result/
           
       # - name: Download test report       
