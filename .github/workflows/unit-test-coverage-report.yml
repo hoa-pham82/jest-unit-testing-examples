@@ -59,26 +59,28 @@ jobs:
         with:
           name: report
           path: test-result/
-      - name: Place artifacts
-        shell: bash
-        run: |
-            mv test-result/* ../
+      # - name: Place artifacts
+      #   shell: bash
+      #   run: |
+      #       mv test-result/* ../
             
       - name: Display structure of downloaded files
         run: ls -R && pwd
+        
+      - name: Display structure of downloaded files
+        run: cat $GITHUB_WORKSPACE
           
       - name: Setup Pages
         uses: actions/configure-pages@v3
         
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v2
-      #   with:
-      #     # Upload test report only
-      #     name: report
-      #     path: jest-unit-testing-examples/test-result/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload test report only
+          name: report
+          path: $GITHUB_WORKSPACE/test-result/
           
-      - name: Display structure of downloaded files
-        run: ls -R && pwd
+ 
 
       - name: Deploy to GitHub Pages
         id: deployment
