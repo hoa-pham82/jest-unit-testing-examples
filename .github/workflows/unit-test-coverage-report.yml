@@ -21,9 +21,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  unit-tests:
+ 
+      
+    
+  # Single deploy job since we're just deploying
+  deploy:
     runs-on: ubuntu-latest
-    steps:
+    if: ${{ always() }}
+
+    environment:
+      name: github-pages
+      url: ${{ steps.change-page-url.outputs.new_page_url }}
+    
+    steps: 
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -44,34 +54,17 @@ jobs:
           name: report
           path: test-result/
           
-      - name: Display structure of downloaded files
-        run: ls -R && pwd && echo $GITHUB_WORKSPACE
-    
-  # Single deploy job since we're just deploying
-  deploy:
-    runs-on: ubuntu-latest
-    if: ${{ always() }}
-    needs: [unit-tests]
-    environment:
-      name: github-pages
-      url: ${{ steps.change-page-url.outputs.new_page_url }}
-    
-    steps:    
       - name: Download test report       
         uses: actions/download-artifact@v3
         with:
           name: report
-          path: $GITHUB_WORKSPACE/test-result/
+          path: test-result/
           
       # - name: Place artifacts
       #   shell: bash
       #   run: |
       #       mv test-result/* ../
-            
-      - name: Display structure of downloaded files
-        run: ls -R && pwd
-        
-        
+                    
       - name: Setup Pages
         uses: actions/configure-pages@v3
         
@@ -80,10 +73,8 @@ jobs:
         with:
           # Upload test report only
           name: report
-          path: $GITHUB_WORKSPACE/test-result
+          path: test-result/
           
- 
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
