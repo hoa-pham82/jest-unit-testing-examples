@@ -53,8 +53,7 @@ jobs:
       name: github-pages
       url: ${{ steps.change-page-url.outputs.new_page_url }}
     
-    steps:
-    
+    steps:    
       - name: Download test report       
         uses: actions/download-artifact@v3
         with:
@@ -63,7 +62,7 @@ jobs:
       - name: Place artifacts
         shell: bash
         run: |
-            mv test-result/* ./
+            mv test-result/* ../
             
       - name: Display structure of downloaded files
         run: ls -R && pwd
