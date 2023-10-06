@@ -80,7 +80,7 @@ jobs:
         with:
           # Upload test report only
           name: github-pages
-          path: $GITHUB_WORKSPACE/test-result
+          path: test-result/
           
       - name: Deploy to GitHub Pages
         id: deployment
