@@ -32,7 +32,7 @@ jobs:
         with:
            node-version: 18
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run unit test and Generate report
         run: npm run test    
