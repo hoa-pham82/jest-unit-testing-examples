@@ -54,12 +54,14 @@ jobs:
       url: ${{ steps.change-page-url.outputs.new_page_url }}
     
     steps:
-      - name: Download test report
+    
+      - name: Download test report       
         uses: actions/download-artifact@v3
         with:
           name: report
+          path: '.'
       - name: Display structure of downloaded files
-        run: ls -R
+        run: ls -R && pwd
           
       - name: Setup Pages
         uses: actions/configure-pages@v3
