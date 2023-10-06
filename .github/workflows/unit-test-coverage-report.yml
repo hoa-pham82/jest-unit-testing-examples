@@ -54,26 +54,25 @@ jobs:
           name: report
           path: test-result/
           
-      - name: Download test report       
-        uses: actions/download-artifact@v3
-        with:
-          name: report
-          path: test-result/
+      # - name: Download test report       
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: report
+      #     path: test-result/
           
       # - name: Place artifacts
       #   shell: bash
       #   run: |
-      #       mv test-result/* ../
-                    
+      #       mv test-result/* ../     
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v2
+      #   with:
+      #     # Upload test report only
+      #     name: report
+      #     path: test-result/
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          # Upload test report only
-          name: report
-          path: test-result/
           
       - name: Deploy to GitHub Pages
         id: deployment
