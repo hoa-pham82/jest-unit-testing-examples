@@ -7,10 +7,11 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^23.0.0-alpha.0",
     "babel-preset-airbnb": "^2.4.0",
-    "jest": "^23.0.0-alpha.0"
+    "jest": "^29.2.1",
+    "jest-html-reporter": "^3.10.2"
   },
   "scripts": {
-    "test": "jest --ci",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
