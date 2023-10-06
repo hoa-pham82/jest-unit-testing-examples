@@ -46,20 +46,19 @@ jobs:
     
   # Single deploy job since we're just deploying
   deploy:
+    runs-on: ubuntu-latest
     if: ${{ always() }}
     needs: [unit-tests]
     environment:
       name: github-pages
       url: ${{ steps.change-page-url.outputs.new_page_url }}
-    runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Download test report
         uses: actions/download-artifact@v3
         with:
           name: report
+          path: test-result/
       - name: Display structure of downloaded files
         run: ls -R
           
