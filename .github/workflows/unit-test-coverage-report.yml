@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy coverage report to Pages
+name: Run Test and Deploy test report to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -21,6 +21,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+           node-version: 18
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit test and Generate report
+        run: npm run test    
+    
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -30,16 +46,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Set up node
-        run: npm install
-
-      - name: Generate report
-        run: npm run test
-
-      - name: Get directory
-        run: ls
-
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
