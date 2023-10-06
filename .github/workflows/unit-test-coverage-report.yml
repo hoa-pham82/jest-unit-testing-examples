@@ -30,24 +30,24 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v3
         with:
-           node-version: 18
+          node-version: 18
       - name: Install dependencies
         run: npm install
 
       - name: Run unit test and Generate report
         run: npm run test
 
-        if: ${{ always() }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
+        if: success() || failure()
         with:
           # Upload test report only
           name: github-pages
           path: test-result/
-          
+
       - name: Display structure of downloaded files
         run: ls && pwd && echo $GITHUB_OUTPUT
-    
+
   # Single deploy job since we're just deploying
   deploy:
     runs-on: ubuntu-latest
@@ -56,36 +56,36 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.change-page-url.outputs.new_page_url }}
-    
-    steps:    
-      - name: Download test report       
+
+    steps:
+      - name: Download test report
         uses: actions/download-artifact@v3
         with:
           name: github-pages
           path: test-result/
-          
+
       # - name: Place artifacts
       #   shell: bash
       #   run: |
       #       mv test-result/* ../
-            
+
       - name: Display structure of downloaded files
         run: ls -R && pwd && echo $GITHUB_OUTPUT
-                
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload test report only
           name: github-pages
           path: test-result/
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        
+
       - name: Override page_url
         id: change-page-url
         run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}report/" >> $GITHUB_OUTPUT
