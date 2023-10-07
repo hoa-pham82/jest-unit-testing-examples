@@ -43,5 +43,6 @@ jobs:
           path: test-result/
 
       - name: Deploy to GitHub Pages
+        if: success() || failure()
         id: deployment
         uses: actions/deploy-pages@v2
