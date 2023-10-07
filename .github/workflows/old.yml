@@ -31,8 +31,10 @@ jobs:
         run: npm run test
 
       - name: Setup Pages
+        if: success() || failure()
         uses: actions/configure-pages@v3
       - name: Upload artifact
+        if: success() || failure()
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload test report only
