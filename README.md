@@ -2,7 +2,7 @@
 
 Welcome to the world of [Jest](https://facebook.github.io/jest/) testing!
 
-Our mission is to break you into this world gently. So let's begin...
+Our mission is to break you into this world gently. So let's begin....
 
 ## Pre-requisites
 * You will need to have access to the command-line, for Linux/Mac a Terminal or on Windows it will be a command prompt (`cmd`)
