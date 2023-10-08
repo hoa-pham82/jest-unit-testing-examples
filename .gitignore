@@ -1,6 +1,6 @@
 node_modules/
 coverage/
-test-result/
+UT-report/
 .vscode/
 allure-report/
 allure-results/
