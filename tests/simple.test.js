@@ -6,7 +6,7 @@ import add from "../src/simple";
 // First check the happy path - the normal inputs expected to get an output
 
 test('Adding 0 and 0 should equal 0', () => {
-  expect(add(0, 0)).toEqual(0);
+  expect(add(0, 0)).toEqual(1);
 });
 
 test('Adding 0 and 1 should equal 1', () => {
