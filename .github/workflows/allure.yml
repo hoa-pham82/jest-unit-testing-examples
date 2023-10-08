@@ -34,6 +34,10 @@ jobs:
       
       - name: Display structure of downloaded files
         if: always()
+        run: ls
+
+      - name: Display structure of downloaded files
+        if: always()
         run: git status && cd gh-pages && pwd && ls
 
       - name: Allure Report action from marketplace
@@ -42,7 +46,7 @@ jobs:
         with:
           allure_results: allure-results
           allure_history: allure-history
-          keep_reports: 10
+          keep_reports: 5
 
       - name: Deploy report to Github Pages
         if: always()
