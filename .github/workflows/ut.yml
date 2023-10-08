@@ -72,6 +72,7 @@ jobs:
         run: ls
       
       - name: Pause
+        if: always()
         run: sleep 30
             
       - name: Deploy report to Github Pages
