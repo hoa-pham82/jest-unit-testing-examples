@@ -2,7 +2,7 @@ name: allure-report
 
 on:
   push:
-    branches: ['demo-allure']
+    branches: ['master']
 
 jobs:
   generate-allure-report:
