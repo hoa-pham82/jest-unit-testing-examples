@@ -64,4 +64,4 @@ jobs:
       
       - name: Display structure of downloaded files
         if: always()
-        run: ls
+        run: ls && cd gh-pages && ls
