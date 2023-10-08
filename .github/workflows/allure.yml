@@ -47,6 +47,10 @@ jobs:
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 5
+    
+      - name: Copy UT report to allure-history
+        if: always()
+        run: cp -r UT-report allure-history
      
       - name: Display allure-history
         if: always()
