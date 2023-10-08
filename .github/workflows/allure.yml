@@ -20,6 +20,7 @@ jobs:
         run: npm run test
 
       - name: Display structure of downloaded files
+        if: always()
         run: ls
 
       - name: Get Allure history
