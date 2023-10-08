@@ -4,3 +4,6 @@ UT-report/
 .vscode/
 allure-report/
 allure-results/
+.github/workflows/unit-test-coverage-report.yml
+.github/workflows/old.yml
+.github/workflows/ut-report.yml

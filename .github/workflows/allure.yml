@@ -70,6 +70,9 @@ jobs:
       - name: Display structure of downloaded files
         if: always()
         run: ls
+      
+      - name: Pause
+        run: sleep 30
             
       - name: Deploy report to Github Pages
         if: always()
