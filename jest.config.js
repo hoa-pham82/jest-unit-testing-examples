@@ -13,7 +13,7 @@ module.exports = {
       './node_modules/jest-html-reporter',
       {
         pageTitle: 'Test Report',
-        outputPath: './UT-report/index.html',
+        outputPath: './UT-report/UT.html',
         includeFailureMsg: true,
         includeConsoleLog: true,
       },
