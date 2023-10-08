@@ -24,17 +24,17 @@ jobs:
         if: always()
         run: ls
 
-    #   - name: Get Allure history
-    #     uses: actions/checkout@v3
-    #     if: always()
-    #     continue-on-error: true
-    #     with:
-    #       ref: gh-pages
-    #       path: gh-pages
+      - name: Get Allure history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
       
-    #   - name: Display structure of downloaded files
-    #     if: always()
-    #     run: ls
+      - name: Display structure of downloaded files
+        if: always()
+        run: git status && cd gh-pages && pwd && ls
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
