@@ -19,8 +19,11 @@ jobs:
       - name: Generate report
         run: npm run test
 
+      - name: Display structure of downloaded files
+        run: ls
+
       - name: Get Allure history
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         if: always()
         continue-on-error: true
         with:
@@ -28,13 +31,12 @@ jobs:
           path: gh-pages
 
       - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@demo-allure
+        uses: simple-elf/allure-report-action@master
         if: always()
-        #id: allure-report
         with:
           allure_results: allure-results
           allure_history: allure-history
-          keep_reports: 5
+          keep_reports: 10
 
       - name: Deploy report to Github Pages
         if: always()
