@@ -1,12 +1,12 @@
-name: allure-report
+name: UT-report
 
 on:
   push:
     branches: ['master']
 
 jobs:
-  generate-allure-report:
-    name: Generate Allure Report
+  generate-Another-report:
+    name: Generate another UT Report
     runs-on: ubuntu-latest
     steps:
 
@@ -23,26 +23,10 @@ jobs:
         if: always()
         run: ls
 
-      - name: Get Allure history
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          keep_reports: 10
-
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+          PUBLISH_DIR: UT-reports

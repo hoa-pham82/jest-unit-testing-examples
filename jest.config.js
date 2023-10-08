@@ -10,10 +10,10 @@ module.exports = {
   reporters: [
     'default',
     [
-      'jest-allure',
+      './node_modules/jest-html-reporter',
       {
         pageTitle: 'Test Report',
-        outputPath: './test-result/index.html',
+        outputPath: './UT-report/index.html',
         includeFailureMsg: true,
         includeConsoleLog: true,
       },
