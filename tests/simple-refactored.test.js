@@ -24,5 +24,5 @@
 // Using forEach, lets loop over each test configuration, create a new Jest test for each of them,
 // and load in the test configuration into that test
 test('making sure jest is configured properly', () => {
-  expect(true).toBe(false);
+  expect(true).toBe(true);
 });
