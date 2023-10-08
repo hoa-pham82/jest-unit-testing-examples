@@ -3,6 +3,7 @@ name: allure-report
 on:
   push:
     branches: ['master']
+  workflow_dispatch:
 
 jobs:
   generate-allure-report:
