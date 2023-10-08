@@ -28,14 +28,14 @@ jobs:
           path: gh-pages
 
       - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
+        uses: simple-elf/allure-report-action@demo-allure
         if: always()
         #id: allure-report
         with:
           allure_results: allure-results
           allure_history: allure-history
           keep_reports: 5
-          
+
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
