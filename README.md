@@ -1,4 +1,4 @@
-![Tests](https://github.com/hoa-pham82/jest-unit-testing-examples/blob/master/.github/workflows/allure.yml/badge.svg)
+![Tests](https://github.com/hoa-pham82/jest-unit-testing-examples/actions/workflows/allure.yml/badge.svg)
 
 ## Jest Unit Testing Examples
 
